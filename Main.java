@@ -1,12 +1,20 @@
 public class Main{
     public static void main(String[] args){
-        Stack s = new Stack(2);
+        List s = new Stack(2);
         s.push(100);
         s.push(200);
         System.out.println(s);
+        s.pop();
+        System.out.println(s);
     }
 }
-class Stack{
+abstract class List{
+    abstract boolean push(int element);
+    abstract int pop();
+    abstract boolean isEmpty();
+    abstract boolean isFull();
+}
+class Stack extends List{
     int top;
     int N;                  // Total Size of Array;
     int arr[];
@@ -51,7 +59,7 @@ class Stack{
         for(int i=0;i<top;i++){
             stringElement = stringElement+" "+String.valueOf(arr[i]);
         }
-        return stringElement;
+        return stringElement+=" -> null";
     }
 
 }
